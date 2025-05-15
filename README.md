@@ -34,8 +34,7 @@ python setup.py install
 ```
 
 run
-
+Change the character in the config. Prepare the content image using ttf2img.py before generation.
 ```shell
 python code/main_Kuzushiji.py
-Change the character in config. Prepare the content image using ttf2img.py before generation.
 ```
