@@ -1,0 +1,95 @@
+baseline:
+  parent_config: ''
+  save:
+    init: true
+    image: true
+    video: true
+    video_frame_freq: 1
+  trainable:
+    point: true
+    color: true
+  lr_base:
+    point: 1
+    color: 1
+  lr:
+    lr_init: 0.002
+    lr_final: 0.0008
+    lr_delay_mult: 0.1
+    lr_delay_steps: 100
+  num_iter: 300
+  render_size: 600
+  cut_size: 512
+  level_of_cc: 0 # 0 - original number of cc / 1 - recommended / 2 - more control points
+  seed: 0
+  diffusion:
+    model: "runwayml/stable-diffusion-v1-5"
+    timesteps: 1000
+    guidance_scale: 100
+  num_paths: 512
+  blob: true
+  color: null
+
+conformal_0.5_dist_pixel_100_kernel201:
+  parent_config: baseline
+  level_of_cc: 1
+  loss:
+    sds_loss:
+      use_sds_loss: true
+      sds_loss_weight: 1000
+    discriminator_loss:
+      use_discriminator_loss: true
+      discriminator_loss_weight: 100
+    tone:
+      use_tone_loss: true
+      tone_loss_weight: 1
+      pixel_dist_kernel_blur: 201
+      pixel_dist_sigma: 30
+    conformal:
+      use_conformal_loss: true
+      angeles_w: 1
+    point_min_dist:
+      use_point_min_dist_loss: true
+      point_min_dist_loss_weight: 1
+      point_min_dist_loss_distance_c: 1
+    style_loss:
+      use_style_loss: true
+      target_img_path: [
+        "../data/kuzushiji_otsu_mask/U+003F_100249537_00012_2_C0061.png",
+        #"../data/kuzushiji_otsu_mask/U+7BB1_200005798_00011_1_C0119.png",
+        "../data/kuzushiji_otsu_mask/U+9903_200021925_00021_2_C0105.png",
+        "../data/kuzushiji_otsu_mask/U+9855_200018243_00030_2_C0081.png",
+        "../data/kuzushiji_otsu_mask/U+9664_200014685_00025_2_C0115.png",
+        "../data/kuzushiji_otsu_mask/U+FA4E_umgy001_003_C0040.png",
+        #"../data/kuzushiji_otsu_mask/U+22999_200015779_00011_2_C0171.png",
+        "../data/kuzushiji_otsu_mask/U+25750_200021644_00044_2_C0007.png",
+        #"../data/kuzushiji_otsu_mask/U+9909_200014740_00012_2_C0110.png",
+        #"../data/kuzushiji_otsu_mask/U+9858_hnsd001_030_C0016.png",
+        #"../data/kuzushiji_otsu_mask/U+9811_200014740_00036_2_C0173.png",
+        #"../data/kuzushiji_otsu_mask/U+4E4E_200021660_00092_1_C0004.png",
+        #"../data/kuzushiji_otsu_mask/U+4E39_200008316_00124_1_C0001.png",
+        #"../data/kuzushiji_otsu_mask/U+FA1F_200021086_00026_2_C0198.png",
+        #"../data/kuzushiji_otsu_mask/U+9156_200014685_00022_2_C0138.png",
+        #"../data/kuzushiji_otsu_mask/U+5B5C_200021660_00094_1_C0036.png",
+        #"../data/kuzushiji_otsu_mask/U+F9DC_200018243_00024_2_C0118.png",
+        #"../data/kuzushiji_otsu_mask/U+9939_200021644_00018_1_C0045.png",
+        #"../data/kuzushiji_otsu_mask/U+9903_200021925_00021_2_C0105.png",
+        #"../data/kuzushiji_otsu_mask/U+9855_200018243_00030_2_C0081.png",
+        #"../data/kuzushiji_otsu_mask/U+9700_200015779_00088_2_C0168.png",
+        #"../data/kuzushiji_otsu_mask/U+9664_200014685_00025_2_C0115.png",
+        #"../data/kuzushiji_otsu_mask/U+9332_200021660_00003_2_C0004.png",
+        #"../data/kuzushiji_otsu_mask/U+9234_200018243_00002_2_C0011.png",
+        #"../data/kuzushiji_otsu_mask/U+9178_100249476_00017_2_C0057.png",
+        #"../data/kuzushiji_otsu_mask/U+9156_200014685_00022_2_C0138.png",
+        #"../data/kuzushiji_otsu_mask/U+9069_200014740_00002_2_C0068.png",
+        ]
+      style_loss_weight: 500
+      content_weight: 100
+    xing_loss:
+      use_xing_loss: false
+      xing_loss_weight: 1
+    sls_loss:
+      use_sls_loss: true
+      sls_loss_weight: 1
+    lf_loss:
+      use_lf_loss: false
+      lf_loss_weight: 0
