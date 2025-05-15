@@ -32,7 +32,9 @@ git submodule update --init --recursive
 conda install cmake
 python setup.py install
 ```
-
+```
+Download MXFont from https://github.com/clovaai/mxfont and put it into Word-As-Image/code/mxencoder
+```
 
 Change the character in the config. Prepare the content image using ttf2img.py before generation.
 
