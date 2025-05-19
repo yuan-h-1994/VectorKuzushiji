@@ -32,9 +32,11 @@ git submodule update --init --recursive
 conda install cmake
 python setup.py install
 ```
-# Step 2: Download MXFont
+# Step 2: Download MXFont and Discriminator checkpoint
 
 Download MXFont follow https://github.com/clovaai/mxfont and put it into Word-As-Image/code/mxencoder
+
+Download checkpoint from https://drive.google.com/file/d/1_Gw-HwGzfpPZL0YYm4nFAtJmz5XGEgds/view?usp=sharing and put it into discriminator/exps/
 
 # Step 3: Prepare data
 
