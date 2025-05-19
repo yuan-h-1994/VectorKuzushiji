@@ -33,12 +33,15 @@ conda install cmake
 python setup.py install
 ```
 ```
-Download MXFont from https://github.com/clovaai/mxfont and put it into Word-As-Image/code/mxencoder
+Download MXFont follow https://github.com/clovaai/mxfont and put it into Word-As-Image/code/mxencoder
 ```
 
-Change the character in the config. Prepare the content image using ttf2img.py before generation.
+Change the character in the config. Prepare the content image using ttf2img.py before generation. Content images are stored in data/melody.
+
+The Kuzushiji data samples are in the data folder, and the style image can be modified by modifying "target_img_path" in Word-As-Image/code/config/base.yaml.
 
 run
 ```shell
+cd Word-As-Image
 python code/main_Kuzushiji.py
 ```
